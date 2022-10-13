@@ -6,11 +6,13 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs16.x
+  region: us-east-1
 
 functions:
   hello:
     handler: handler.hello
+    url: true
 
 plugins:
   - serverless-offline
