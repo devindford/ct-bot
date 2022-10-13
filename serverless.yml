@@ -8,6 +8,8 @@ provider:
   name: aws
   runtime: nodejs16.x
   region: us-east-1
+  environment:
+    DISCORD_TOKEN: ${param:discord_token}
 
 functions:
   hello:
