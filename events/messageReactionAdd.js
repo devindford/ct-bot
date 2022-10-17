@@ -7,7 +7,7 @@ module.exports = {
    const guild = reaction.message.guild
     // look up the member who reacted so we can add the role
    const memberWhoReacted = guild.members.cache.find((member) => member.user.id === reaction.message.author.id)
-   console.log(memberWhoReacted?.user)
+   console.log(memberWhoReacted?.user.username)
     // See if emoji is in the list of reactions
     const userReaction = reactions.find(singleReaction => reaction.emoji.id === singleReaction.id)
     // If the emoji is not in the list
@@ -18,7 +18,7 @@ module.exports = {
        if (!memberWhoReacted?.roles?.cache.has(role.id)) {
          console.log('Member doesnt have role, we can add')
          await memberWhoReacted.roles.add(role.id)
-         console.log(`${role.name} added to user ID:${memberWhoReacted}`)
+         console.log(`${role.name} added to user:${memberWhoReacted?.user.username}`)
          return
        }
        console.log('User already has the role')

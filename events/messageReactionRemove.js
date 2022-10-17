@@ -17,7 +17,7 @@ module.exports = {
       if (memberWhoReacted?.roles?.cache.has(role.id)) {
         console.log('Member has role, we can remove')
         await memberWhoReacted.roles.remove(role.id)
-        console.log(`${role.name} removed from user ID:${memberWhoReacted}`)
+        console.log(`${role.name} removed from user:${memberWhoReacted?.user.username}`)
         return
       }
       console.log('User does not have this resolveComponent')
