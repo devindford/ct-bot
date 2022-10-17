@@ -16,7 +16,7 @@ module.exports = {
     })
 
     // Set user Activity
-    client.user?.setActivity('all of you ', { type: ActivityType.Watching })
+    client.user?.setActivity('all of you 👀', { type: ActivityType.Watching })
     console.log(`Bot Is Ready`)
   },
 }
