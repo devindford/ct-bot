@@ -3,12 +3,11 @@ const { roles, reactions, reaction_channel_id } = require('../config.json')
 module.exports = {
   name: 'messageReactionAdd',
   async execute(reaction) {
-    console.log(reaction_channel_id)
-    console.log(reaction.message.channelId)
   if (reaction.message.channelId !== reaction_channel_id) return
    const guild = reaction.message.guild
     // look up the member who reacted so we can add the role
    const memberWhoReacted = guild.members.cache.find((member) => member.user.id === reaction.message.author.id)
+   console.log(memberWhoReacted?.user)
     // See if emoji is in the list of reactions
     const userReaction = reactions.find(singleReaction => reaction.emoji.id === singleReaction.id)
     // If the emoji is not in the list

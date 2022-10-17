@@ -3,8 +3,6 @@ const { roles, reactions, reaction_channel_id } = require('../config.json')
 module.exports = {
   name: 'messageReactionRemove',
   async execute(reaction) {
-    console.log(reaction_channel_id)
-    console.log(reaction.message.channelId)
     if (reaction.message.channelId !== reaction_channel_id) return
     const guild = reaction.message.guild
     // look up the member who reacted so we can add the role
