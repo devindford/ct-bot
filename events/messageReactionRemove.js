@@ -6,6 +6,7 @@ module.exports = {
     if (reaction.message.channelId !== reaction_channel_id) return
     const guild = reaction.message.guild
     // look up the member who reacted so we can add the role
+    console.log(reaction)
     const memberWhoReacted = guild.members.cache.find((member) => member.user.id === reaction.message.author.id)
     // See if emoji is in the list of reactions
     const userReaction = reactions.find((singleReaction) => reaction.emoji.id === singleReaction.id)
