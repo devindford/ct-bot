@@ -2,12 +2,11 @@ const { roles, reactions, reaction_channel_id } = require('../config.json')
 
 module.exports = {
   name: 'messageReactionRemove',
-  async execute(reaction) {
+  async execute(reaction, user) {
     if (reaction.message.channelId !== reaction_channel_id) return
     const guild = reaction.message.guild
     // look up the member who reacted so we can add the role
-    console.log(reaction)
-    const memberWhoReacted = guild.members.cache.find((member) => member.user.id === reaction.message.author.id)
+    const memberWhoReacted = guild.members.cache.find((member) => member.user.id === user.id)
     // See if emoji is in the list of reactions
     const userReaction = reactions.find((singleReaction) => reaction.emoji.id === singleReaction.id)
     // If the emoji is not in the list
@@ -21,7 +20,7 @@ module.exports = {
         console.log(`${role.name} removed from user:${memberWhoReacted?.user.username}`)
         return
       }
-      console.log('User does not have this resolveComponent')
+      console.log('User does not have this role')
     }
   },
 }
