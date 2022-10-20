@@ -1,11 +1,12 @@
 const {ActivityType} = require('discord.js')
 const { message_id, reaction_channel_id, reactions } = require('../config.json')
+const logger = require( '../logger' )
 
 module.exports = {
   name: 'ready',
   once: true,
   async execute(client) {
-    console.log(`Logged in as ${client.user.tag}`)
+    logger.info(`Logged in as ${client.user.tag}`)
     // Get channel and message
     const channel = client.channels.cache.get(reaction_channel_id)
     const message = await channel.messages.fetch(message_id)
@@ -17,6 +18,6 @@ module.exports = {
 
     // Set user Activity
     client.user?.setActivity('all of you 👀', { type: ActivityType.Watching })
-    console.log(`Bot Is Ready`)
+    logger.info(`Bot Is Ready`)
   },
 }
