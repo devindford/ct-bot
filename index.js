@@ -5,6 +5,7 @@ const ssm = new AWS.SSM({ region: 'us-east-1' })
 const { Client, GatewayIntentBits } = require('discord.js')
 const fs = require('node:fs')
 const path = require('node:path')
+const logger = require( './logger' )
 
 const entry = async () => {
 	// Create a new promise that will get our token from ssm
@@ -20,6 +21,7 @@ return new Promise((res, rej) => {
 })
 }
 
+logger.info( 'Getting token from param store' )
 const token = await getEnvVar('DISCORD_TOKEN')
 
 // Get our new discord client
