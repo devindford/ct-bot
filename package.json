@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/devindford/ct-bot#readme",
   "dependencies": {
-    "aws-sdk": "^2.1360.0",
+    "aws-sdk": "^2.1399.0",
     "discord.js": "^14.9.0",
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.22",
